@@ -1,0 +1,11 @@
+$color-beige: (
+    100: #EDE9E6,
+    200: #C8BEB5,
+    300: #A39383,
+    400: #62584F,
+    500: #211D1A,
+);
+
+@function getColor($shade) {
+    @return map-get($color-beige, $shade);
+}

@@ -1,0 +1,36 @@
+// @import "bootstrap";
+@import "colors";
+@import "spacing";
+
+body,
+.singular .entry-header,
+.header-footer-group,
+.singular .featured-media::before {
+    background-color: getColor(500);
+    color: getColor(100);
+}
+
+.wp-block-heading {
+    color: getColor(100);
+}
+
+.entry-title,
+.genre-title,
+.genre-pagination,
+.wp-block-group__inner-container {
+    color: getColor(100);
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.post-meta{
+    justify-content: center;
+    color: getColor(100);
+    padding-bottom: 4rem;
+    gap: .5rem;
+}
+
+.entry-title a{
+    color: getColor(100) !important;
+}
+

@@ -1,0 +1,32 @@
+
+# BEGIN WordPress
+# Dyrektywy zawarte między "BEGIN WordPress" oraz "END WordPress"
+# są generowane dynamicznie i powinny być modyfikowane tylko za pomocą
+# filtrów WordPressa. Zmiany dokonane bezpośrednio tutaj będą nadpisywane.
+
+# BEGIN Images to WebP
+<IfModule mod_mime.c>
+AddType image/webp .webp
+</IfModule>
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_ACCEPT} image/webp
+RewriteCond %{REQUEST_FILENAME} "/"
+RewriteCond %{REQUEST_FILENAME} "\.(jpg|jpeg|gif|png)$"
+RewriteCond %{REQUEST_FILENAME}\.webp -f
+RewriteCond %{QUERY_STRING} !no_webp
+RewriteRule ^(.+)$ $1\.webp [NC,T=image/webp,E=webp,L]
+</IfModule>
+# END Images to WebP
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
